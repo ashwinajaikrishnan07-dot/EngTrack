@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-app: #f9fafb;
+  --bg-card: #ffffff;
+  --border-subtle: #e5e7eb;
+  --bg-input: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+}
+
+[data-theme="dark"] {
+  --bg-app: #050505;
+  --bg-card: #111111;
+  --border-subtle: #1e2a38;
+  --bg-input: #110a02;
+  --text-primary: #ffffff;
+  --text-secondary: #8a9aaa;
+  --text-muted: #7a8a9a;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-input);
+    color: var(--text-secondary);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex justify-center items-center gap-2 px-4 py-2 rounded-[8px] font-medium text-sm transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-[#4da6ff] text-white hover:bg-[#3b8fe8] active:bg-[#2a7ed8];
+  }
+  .btn-secondary {
+    @apply btn bg-transparent text-[#4da6ff] hover:bg-card border border-[#4da6ff];
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--text-muted);
+  }
+  .btn-ghost:hover {
+    background-color: var(--border-subtle);
+    color: var(--text-primary);
+  }
+  .card {
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  .input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    outline: none;
+    box-shadow: none;
+  }
+  .input:focus {
+    border-color: #4da6ff;
+    box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.15);
+  }
+  .input::placeholder {
+    color: var(--text-muted);
+  }
+  .label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+}
